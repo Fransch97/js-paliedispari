@@ -13,8 +13,18 @@
     for(let i = palindromaLength; i >= 0; i--){
         saveAbc.push(palindroma.charAt(i))
     }
-    console.log(saveAbc)
+    console.log(saveAbc);
+    let controll = "";
+    for(let i = 0; i < saveAbc.length; i++ ){
+        controll += saveAbc[i]
+    }
+    console.log(controll)
 
+    if(controll === palindroma){
+        console.log(true)
+    }else{
+        console.log(false)
+    }
 
 
 
