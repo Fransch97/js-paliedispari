@@ -3,32 +3,47 @@
 // Chiedere all’utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 // Bonus: L’inserimento avviene tramite un campo input
+   
+const btn = document.querySelector('button');
+console.log(btn)
 
+btn.addEventListener('click', isPara);
 
-    const palindroma = "anna";
+function isPara(){
+    const palindroma = document.querySelector('#input-pala').value;
+    console.log(palindroma);
     const palindromaLength = palindroma.length - 1;
     console.log(palindroma.length);
     const saveAbc = [];
 
     for(let i = palindromaLength; i >= 0; i--){
-        saveAbc.push(palindroma.charAt(i))
+        saveAbc.push(palindroma.charAt(i));
     }
     console.log(saveAbc);
     let controll = "";
     for(let i = 0; i < saveAbc.length; i++ ){
         controll += saveAbc[i]
     }
-    console.log(controll)
+    console.log(controll);
 
     if(controll === palindroma){
-        console.log(true)
+        document.querySelector('#span-pala').innerHTML = `${palindroma} è un palindroma`;
+        console.log(true);
     }else{
-        console.log(false)
+        console.log(false);
+        document.querySelector('#span-pala').innerHTML = `${palindroma} non è un palindroma`;
     }
+    document.querySelector('#input-pala').innerHTML = "";
+    console.log("arrivo fino a qui")
+}
+    
+
+
+    
 
 
 
-
+    
 
 
 // Pari e Dispari
