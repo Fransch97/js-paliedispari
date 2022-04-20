@@ -53,30 +53,62 @@ function isPara(){
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 // Bonus: L’inserimento avviene tramite un campo input
+let userChoise = "";
 
- const userNamber = 5;
- const userChoise = "dispari";
+const btnPari = document.querySelector('.pari');
+console.log(btnPari)
+const btnDispari = document.querySelector('.dispari');
+console.log(btnDispari)
 
 
- const pc = Math.ceil(Math.random()*5);
+btnPari.addEventListener('click', ()=>{
+    userChoise = "pari";
+    console.log(userChoise);
+    btnPari.style.cssText = "background-color: red;";
+    btnDispari.style.cssText = "background-color: none ;";
+})
 
- console.log(pc)
+btnDispari.addEventListener('click', ()=>{
+    userChoise = "dispari";
+    console.log(userChoise);
+    btnDispari.style.cssText = "background-color: red;";
+    btnPari.style.cssText = "background-color: none ;";
+})
 
- let sum = userNamber + pc;
 
- let pari = false;
+const btnPlay = document.querySelector('.play');
 
- if(!(sum % 2)){
-     pari  = true;
- }
- console.log(pari)
+btnPlay.addEventListener('click', pariDispari);
 
- if(pari && userChoise === "pari"){
-    console.log(`il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`);
- }else if(!pari && userChoise === "dispari"){
-    console.log(`il pc ha scelto ${pc} la somma è ${sum} : dispari hai vinto`);
- }else if(pari && userChoise === "dispari"){
-    console.log(`il pc ha scelto ${pc} la somma è ${sum} : pari hai perso`);
- }else{
-    console.log(`il pc ha scelto ${pc} la somma è ${sum} : dispari hai perso`);
- }
+function pariDispari(){
+    const userNamber = parseInt(document.querySelector('#input-pari-dispari').value);
+    console.log(userNamber);
+   
+   
+    const pc = Math.ceil(Math.random()*5);
+   
+    console.log(pc)
+   
+    let sum = userNamber + pc;
+   
+    let pari = false;
+   
+    if(!(sum % 2)){
+        pari  = true;
+    }
+    console.log(pari);
+   const paragraph = document.querySelector('#parDispari-p');
+    if(pari && userChoise === "pari"){
+       console.log(`Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`);
+       paragraph.innerHTML = `Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`;
+    }else if(!pari && userChoise === "pari"){
+       console.log(` Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : dispari hai perso`);
+       paragraph.innerHTML = `Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : dispari hai perso`;
+    }else if(pari && userChoise === "dispari"){
+       console.log(`Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai perso`);
+       paragraph.innerHTML = `Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai perso`;
+    }else{
+       console.log(`Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : dispari hai vinto`);
+       paragraph.innerHTML = `Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : dispari hai vinto`
+    }
+}
