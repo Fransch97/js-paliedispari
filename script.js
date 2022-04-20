@@ -81,15 +81,15 @@ const btnPlay = document.querySelector('.play');
 btnPlay.addEventListener('click', pariDispari);
 
 function pariDispari(){
-    const userNamber = parseInt(document.querySelector('#input-pari-dispari').value);
-    console.log(userNamber);
+    const userNumber = parseInt(document.querySelector('#input-pari-dispari').value);
+    console.log(userNumber);
    
    
     const pc = Math.ceil(Math.random()*5);
    
     console.log(pc)
    
-    let sum = userNamber + pc;
+    let sum = userNumber + pc;
    
     let pari = false;
    
@@ -97,7 +97,22 @@ function pariDispari(){
         pari  = true;
     }
     console.log(pari);
-   const paragraph = document.querySelector('#parDispari-p');
+    const paragraph = document.querySelector('#parDispari-p');
+
+    if(userNumber > 5){
+        paragraph.innerHTML = "Hai inserito un numero più alto di 5";
+        return
+    }
+    if(isNaN(userNumber)){
+        paragraph.innerHTML = "Devi inserire un numer da 1 a massimo 5";
+        return
+    }
+    if(userChoise === "" || userChoise === ""){
+        paragraph.innerHTML = "Devi scegliere se pari o dispari";
+        return
+
+    }
+
     if(pari && userChoise === "pari"){
        console.log(`Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`);
        paragraph.innerHTML = `Hai scelto ${userChoise} il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`;
