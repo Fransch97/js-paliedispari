@@ -53,3 +53,30 @@ function isPara(){
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 // Bonus: L’inserimento avviene tramite un campo input
+
+ const userNamber = 5;
+ const userChoise = "dispari";
+
+
+ const pc = Math.ceil(Math.random()*5);
+
+ console.log(pc)
+
+ let sum = userNamber + pc;
+
+ let pari = false;
+
+ if(!(sum % 2)){
+     pari  = true;
+ }
+ console.log(pari)
+
+ if(pari && userChoise === "pari"){
+    console.log(`il pc ha scelto ${pc} la somma è ${sum} : pari hai vinto`);
+ }else if(!pari && userChoise === "dispari"){
+    console.log(`il pc ha scelto ${pc} la somma è ${sum} : dispari hai vinto`);
+ }else if(pari && userChoise === "dispari"){
+    console.log(`il pc ha scelto ${pc} la somma è ${sum} : pari hai perso`);
+ }else{
+    console.log(`il pc ha scelto ${pc} la somma è ${sum} : dispari hai perso`);
+ }
